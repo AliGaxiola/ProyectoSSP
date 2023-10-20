@@ -31,6 +31,13 @@ const Register = () => {
                 </h2>
                 <div>
                   <div className="text-left mt-4">
+                    <p>Matricula</p>
+                    <input
+                      type="text"
+                      className="input input-bordered input-success w-full max-w-xs bg-white text-black"
+                    />
+                  </div>
+                  <div className="text-left mt-4">
                     <p>Nombre</p>
                     <input
                       type="text"
@@ -52,13 +59,6 @@ const Register = () => {
                     />
                   </div>
                   <div className="text-left mt-4">
-                    <p>Matricula</p>
-                    <input
-                      type="text"
-                      className="input input-bordered input-success w-full max-w-xs bg-white text-black"
-                    />
-                  </div>
-                  <div className="text-left mt-4">
                     <p>Contraseña</p>
                     <input
                       type="password"
@@ -72,14 +72,19 @@ const Register = () => {
                       className="input input-bordered input-success w-full max-w-xs bg-white text-black"
                     />
                   </div>
-                  <p className="mt-4 text-left">Facultad</p>
-                  <select className="select select-success w-full max-w-xs bg-white">
-                    <option disabled selected>
-                      Selecciona tu facultad
-                    </option>
-                    <option>Facultad de Mercadotecnia</option>
-                    <option>Facultad de Gastronomia</option>
-                  </select>
+                  <div>
+                    <p className="mt-4 text-left">Facultad</p>
+                    <select className="select select-success w-full max-w-xs bg-white">
+                      <option disabled selected>
+                        Selecciona tu facultad
+                      </option>
+                      <option>Facultad de Mercadotecnia</option>
+                      <option>Facultad de Gastronomia</option>
+                    </select>
+                  </div>
+                  <button className="btn btn-wide bg-green-700 text-white mt-7">
+                    Registrarse
+                  </button>
                 </div>
               </div>
             </div>
