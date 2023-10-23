@@ -1,7 +1,10 @@
+"use client"
 import Image from "next/image";
 import React from "react";
+import { useRouter } from "next/navigation";
 
 const Auth = () => {
+  const router = useRouter();
   return (
     <div className="relative h-full w-full">
       <div className="w-full h-full">
@@ -39,7 +42,10 @@ const Auth = () => {
                   <button className="btn btn-wide bg-green-700 text-white mt-7">
                     Iniciar Sesion
                   </button>
-                  <button className="btn btn-wide bg-green-700 text-white mt-5">
+                  <button
+                    className="btn btn-wide bg-green-700 text-white mt-5"
+                    onClick={() => router.push("/register")}
+                  >
                     Registrarse
                   </button>
                 </div>

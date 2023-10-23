@@ -26,10 +26,10 @@ const Register = () => {
                   alt="logo"
                 />
                 <h2>Universidad Autonoma de Baja California</h2>
-                <h2 className="text-4xl font-bold text-black mt-14">
+                <h2 className="text-4xl font-bold text-black mt-12 mb-5">
                   Registro
                 </h2>
-                <div>
+                <div className="grid grid-cols-2 gap-4 ml-4">
                   <div className="text-left mt-4">
                     <p>Matricula</p>
                     <input
@@ -82,10 +82,10 @@ const Register = () => {
                       <option>Facultad de Gastronomia</option>
                     </select>
                   </div>
-                  <button className="btn btn-wide bg-green-700 text-white mt-7">
-                    Registrarse
-                  </button>
                 </div>
+                <button className="btn btn-wide bg-green-700 text-white mt-7">
+                  Registrarse
+                </button>
               </div>
             </div>
           </div>
