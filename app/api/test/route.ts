@@ -1,11 +1,19 @@
+// Importa la conexión a la base de datos desde db.js
 import { pool } from "@/config/db";
-import { NextApiResponse, NextApiRequest } from "next";
+import { NextResponse } from "next/server";
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export async function GET() {
   try {
-    const result = await pool.query("SELECT NOW()");
-    res.status(200).json(result);
+    // Realiza la consulta a la tabla "usuario"
+    const [rows, fields] = await pool.execute("SELECT * FROM usuario");
+
+    // Devuelve los resultados como JSON
+    return NextResponse.json(rows, { status: 200 });
   } catch (error) {
-    res.status(500).json({ error: "Something went wrong" });
+    // En caso de error, maneja la excepción
+    return NextResponse.json(
+      { message: "Error al consultar la tabla usuario" },
+      { status: 500 }
+    );
   }
-};
+}
