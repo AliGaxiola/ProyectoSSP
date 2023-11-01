@@ -19,3 +19,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 Para la base de datos usamos MongoDB, los pasos fueron:
 1- Descargar Mongodb Compass
 2- Instalar Prisma en el proyecto (npm install prisma) y npm install @prisma/client mongodb
+
+Intale Next Auth
+1- npm install next-auth

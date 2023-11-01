@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 export async function GET() {
   try {
     // Realiza la consulta a la tabla "usuario"
-    const [rows, fields] = await pool.execute("SELECT * FROM usuario");
+    const [rows, fields] = await pool.execute("SELECT * FROM alumno");
 
     // Devuelve los resultados como JSON
     return NextResponse.json(rows, { status: 200 });
