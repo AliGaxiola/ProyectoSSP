@@ -1,70 +1,41 @@
-generator client {
-  provider = "prisma-client-mongodb"
-  output = "./node_modules/@prisma/client"
-}
+// schema.prisma
 
 datasource db {
   provider = "mysql"
-  url      = env("DATABASE_URL")
+  url      = env("DB_URL")
 }
 
-model User {
-  id   Int                   @id @default(autoincrement())
-  nombre String
-  apellidoP String
-  apellidoM String
-  matricula Int
+generator client {
+  provider = "prisma-client-js"
 }
 
-// model User {
-//   id             String    @id @default(auto()) @map("_id") @db.ObjectId
-//   name           String
-//   apellidoP      String
-//   apellidoM      String
-//   matricula      Int?
-//   hashedPassword String?
-//   createdAt      DateTime  @default(now())
-//   updatedAt      DateTime  @updatedAt
-//   sessions       Session[]
-//   accounts       Account[]
-// }
+model Alumno {
+  numero_de_control    Int     @id
+  nombre               String
+  primer_apellido      String
+  segundo_apellido     String
+  contrasena           String
+  facultad             Facultad
+}
 
-// model Facultad{
-//   id             String    @id @default(auto()) @map("_id") @db.ObjectId
-//   nombre        String
-// }
+enum Facultad {
+  Tronco_comun
+  Gestion_Turistica
+  Mercadotecnia
+  Gastronomia
+}
 
-// model Account {
-//   id                String  @id @default(auto()) @map("_id") @db.ObjectId
-//   userId            String  @db.ObjectId
-//   type              String
-//   provider          String
-//   providerAccountId String
-//   refresh_token     String? @db.String
-//   access_token      String? @db.String
-//   expires_at        Int?
-//   token_type        String?
-//   scope             String?
-//   id_token          String? @db.String
-//   session_state     String?
-
-//   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-//   @@unique([provider, providerAccountId])
-// }
-
-// model Session {
-//   id           String   @id @default(auto()) @map("_id") @db.ObjectId
-//   sessionToken String   @unique
-//   userId       String   @db.ObjectId
-//   expires      DateTime
-//   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-// }
-
-// model VerificationToken {
-//   id         String   @id @default(auto()) @map("_id") @db.ObjectId
-//   identifier String
-//   token      String   @unique
-//   expires    DateTime
-
-//   @@unique([identifier, token])
+model EspecificacionComputadora {
+  id                      Int      @id @default(autoincrement())
+  numero                  Int
+  marca                   String
+  modelo                  String
+  procesador              String
+  memoria_ram             Int
+  capacidad_almacenamiento Int
+  tarjeta_grafica          String
+  sistema_operativo        String
+  numero_patrimonial       Int
+  ultima_fecha_mantenimiento DateTime?
+  proxima_fecha_mantenimiento DateTime?
+}
