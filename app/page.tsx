@@ -1,5 +1,4 @@
 "use client";
-import TestApi from "@/components/TestApi";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -25,7 +24,6 @@ export default function Home() {
   return (
     <main className="grid items-center justify-center md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
       <h1>Hello World!</h1>
-      <TestApi />
       {loading ? (
         <p>Cargando datos del alumno...</p>
       ) : alumnoData ? (
