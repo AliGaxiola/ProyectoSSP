@@ -1,10 +1,52 @@
-"use client"
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useCallback } from "react";
 import { useRouter } from "next/navigation";
+import axios from "axios";
+import { useState } from "react";
+import { sign } from "crypto";
+import { signIn } from "next-auth/react";
+import { log } from "console";
 
 const Auth = () => {
   const router = useRouter();
+
+  const [matricula, setMatricula] = useState(""); // Estado para la matrícula
+  const [contrasena, setContrasena] = useState(""); // Estado para la contraseña
+
+  const login = useCallback(async () => {
+    if (!matricula || !contrasena) {
+      alert("Se ocupa un usuario o contraseña.");
+      return;
+    }
+    try {
+      await signIn("credentials"),
+        {
+          matricula,
+          contrasena,
+          redirect: false,
+          callbackUrl: "/",
+        };
+      router.push("/");
+    } catch (error) {
+      console.error(error);
+    }
+  }, [matricula, contrasena, router]);
+
+  // Controlador de cambio para la matrícula
+  const handleMatriculaChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setMatricula(event.target.value);
+  };
+
+  // Controlador de cambio para la contraseña
+  const handleContrasenaChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setContrasena(event.target.value);
+  };
+
   return (
     <div className="relative h-full w-full">
       <div className="w-full h-full">
@@ -29,6 +71,8 @@ const Auth = () => {
                       type="text"
                       placeholder="Matricula"
                       className="input input-bordered input-success w-full max-w-xs bg-white text-black"
+                      value={matricula}
+                      onChange={handleMatriculaChange}
                     />
                   </div>
                   <div className="text-left mt-4">
@@ -37,9 +81,14 @@ const Auth = () => {
                       type="password"
                       placeholder="Contraseña"
                       className="input input-bordered input-success w-full max-w-xs bg-white text-black"
+                      value={contrasena}
+                      onChange={handleContrasenaChange}
                     />
                   </div>
-                  <button className="btn btn-wide bg-green-700 text-white mt-7">
+                  <button
+                    className="btn btn-wide bg-green-700 text-white mt-7"
+                    onClick={login}
+                  >
                     Iniciar Sesion
                   </button>
                   <button
