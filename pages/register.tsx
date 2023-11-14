@@ -95,6 +95,7 @@ const Register = () => {
                       </option>
                       <option>Facultad de Mercadotecnia</option>
                       <option>Facultad de Gastronomia</option>
+                      <option>Tronco Comun</option>
                     </select>
                   </div>
                   <button className="btn btn-wide bg-green-700 text-white mt-7">
