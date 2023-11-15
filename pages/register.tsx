@@ -1,7 +1,11 @@
+"use client";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React from "react";
 
 const Register = () => {
+  const router = useRouter();
+
   return (
     <div className="relative h-full w-full">
       <div className="w-full h-full">
@@ -10,6 +14,25 @@ const Register = () => {
             <div className="flex flex-row">
               <div className="flex flex-col w-1/2">
                 <div className="flex flex-col items-center text-center">
+                  <button
+                    className="btn btn-circle btn-outline"
+                    onClick={() => router.push("/auth")}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
                   <Image
                     src={"/uabc-logo.png"}
                     width={110}
@@ -45,7 +68,7 @@ const Register = () => {
                     <div className="text-left mt-4">
                       <p>Matricula</p>
                       <input
-                        type="text"
+                        type="number"
                         className="input input-bordered input-success w-full max-w-xs bg-white text-black"
                       />
                     </div>
@@ -72,6 +95,7 @@ const Register = () => {
                       </option>
                       <option>Facultad de Mercadotecnia</option>
                       <option>Facultad de Gastronomia</option>
+                      <option>Tronco Comun</option>
                     </select>
                   </div>
                   <button className="btn btn-wide bg-green-700 text-white mt-7">

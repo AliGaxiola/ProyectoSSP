@@ -20,5 +20,12 @@ Para la base de datos usamos MongoDB, los pasos fueron:
 1- Descargar Mongodb Compass
 2- Instalar Prisma en el proyecto (npm install prisma) y npm install @prisma/client mongodb
 
+Intale Prisma
+
 Intale Next Auth
 1- npm install next-auth
+
+Instale react-hook-form
+1- npm i react-hook-form
+
+npm i @next-auth/prisma-adapter
